@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class AutoBoxingUnboxingExample {
+    
+    public static void main(String[] args) {
+        // Sample input as strings
+        String[] numberStrings = {"10", "20", "30", "40", "50"};
+        
+        // Convert strings to Integer objects and store them in a list
+        List<Integer> numbers = parseStringsToIntegers(numberStrings);
+        
+        // Calculate sum using unboxing
+        int sum = calculateSum(numbers);
+        
+        // Display the result
+        System.out.println("The sum of the numbers is: " + sum);
+    }
+
+    // Method to parse strings into a list of Integers (Autoboxing)
+    public static List<Integer> parseStringsToIntegers(String[] strNumbers) {
+        List<Integer> intList = new ArrayList<>();
+        for (String str : strNumbers) {
+            intList.add(Integer.parseInt(str)); // Autoboxing: int -> Integer
+        }
+        return intList;
+    }
+
+    // Method to calculate sum (Unboxing happens here)
+    public static int calculateSum(List<Integer> numbers) {
+        int sum = 0;
+        for (Integer num : numbers) {
+            sum += num; // Unboxing: Integer -> int
+        }
+        return sum;
+    }
+}
